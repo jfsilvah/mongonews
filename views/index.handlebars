@@ -9,8 +9,11 @@
 </div>
 
 <div id="articles">
-    {{this}}
     {{#each articles}}
+    {{this}}
+    {{this.link}}
+    {{link}}
+    {{articles.link}}
         <p>
            <div class="well">
                <div class="row">
