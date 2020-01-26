@@ -1,0 +1,30 @@
+{{> navs/saved}}
+
+<div id="articles">
+    {{#if articles}}
+        {{#each articles}}
+               <p>
+                  <div class="well">
+                      <div class="row">
+                          <div class="col col-md-8">
+                              <h4><a href="{{this.link}}">{{this.title}}</a></h4>
+                          </div>
+                          <div class="col col-md-2">
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#m{{this.id}}">Post a Comment</button>
+                              {{> content/modal}}
+                          </div>
+                          <div class="col col-md-2">
+                              <form class="form-inline" action="/api/articles/{{this.id}}?_method=DELETE" method="POST">
+                                  <button type="submit" class="btn btn-danger">Remove Article</button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+               </p>
+        {{/each}}
+    {{else}}
+        <div class="well">
+            <br><h4>&nbsp;&nbsp;You have not saved any article yet.</h4>
+        </div>
+    {{/if}}
+</div>
